@@ -1,0 +1,27 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+button {
+  font-size: 8vw !important;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 3;
+  grid-gap: 2vh;
+  justify-content: center;
+
+  width: 100%;
+  
+  font-size: 8vw;
+}
+
+.result {
+  color: blue;
+}
