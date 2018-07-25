@@ -23,23 +23,22 @@ class ObservableValue {
 }
 
 const connections = new ObservableValue(0, 'connections', function() { this.value++ });
-// let totalString = '';
+const lastSessionValue = new ObservableValue('', 'stringLength', function(value) { this.value = value });
 
 self.addEventListener("connect", (e) => {
   const port = e.ports[0];
   connections.subscribePort(port);
+  lastSessionValue.subscribePort(port);
   connections.change();
 
-  // if (totalString) {
-  //   port.postMessage({ lastSessionValue: totalString });
-  // }
+  port.addEventListener('message', (e) => {
+    let totalString = '';
 
-  // port.addEventListener('message', (e) => {
-  //   for(let i = 0; i < e.data.iterationsCount; i++) {
-  //     totalString += i;
-  //   }
-  //   port.postMessage({ stringLength: totalString.length });
-  // });
+    for(let i = 0; i < e.data.iterationsCount; i++) {
+      totalString += i;
+    }
+    lastSessionValue.change(totalString.length);
+  });
 
-	port.start();
+  port.start();
 }, false);

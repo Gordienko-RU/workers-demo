@@ -71,8 +71,7 @@ class App extends Component {
         </ButtonToolbar>
 
         <div className="results-container">
-          <p>long loop:<span className="result">{this.state.longLoop.result}</span></p>
-          <p>increment:<span className="result">{this.state.increment.result}</span></p>
+          <p>last session value:<span className="result">{this.state.longLoop.result}</span></p>
           <p>connections amount:<span className="result">{this.state.connectionsAmount}</span></p>
         </div>
       </div>  
