@@ -1,0 +1,15 @@
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  height: 96vh;
+  width: 96vw;
+
+  border: 1px solid black;
+}
+
+.App img {
+  max-height:40vh;
+}
